@@ -1,6 +1,6 @@
 <?php
 
-namespace core\customer\contracts\interface;
+namespace core\contracts;
 
 interface CreateIdProvider
 {

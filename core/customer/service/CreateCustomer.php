@@ -2,11 +2,12 @@
 
 namespace core\customer\service;
 
-use core\customer\contracts\dto\CustomerInputDto;
-use core\customer\contracts\dto\CustomerOutputDto;
-use core\customer\contracts\interface\CreateIdProvider;
+use core\customer\dto\CustomerInputDto;
+use core\customer\dto\CustomerOutputDto;
+use core\contracts\CreateIdProvider;
+use core\contracts\UseCase;
 
-class CreateCustomer
+class CreateCustomer implements UseCase
 {
     public function __construct(
         private CustomerInputDto $customerInputDto,

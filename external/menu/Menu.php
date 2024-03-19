@@ -3,7 +3,10 @@
 namespace test_dto\external\menu;
 
 use core\customer\service\CreateCustomer;
-use core\customer\contracts\dto\CustomerInputDto;
+use core\customer\dto\CustomerInputDto;
+use core\product\service\CreateProduct;
+use core\product\dto\ProductInputDto;
+use core\product\enum\Categories;
 use external\service\GenerateIdRandom;
 
 class Menu
@@ -38,17 +41,25 @@ class Menu
                 $data       = new CustomerInputDto($name, $age);
                 $useCase    = new CreateCustomer($data, $idProvider);
                 $customer   = $useCase->execute();
-                echo "Customer created with success: " . $customer->name . "\n";
-                echo json_encode($customer) . "\n";
+                echo "Customer created with success: " . json_encode($customer) . "\n";
                 break;
             case 2:
-                echo "Product created\n";
+                $name = readline("Type the name: ");
+                system('clear');
+                $price = readline("Type the price: ");
+                system('clear');
+                $category   = Categories::DRINK;
+                $idProvider = new GenerateIdRandom();
+                $data       = new ProductInputDto($name, $price, $category);
+                $useCase    = new CreateProduct($data, $idProvider);
+                $product    = $useCase->execute();
+                echo "Product created with success: " . json_encode($product) . "\n";
                 break;
             case 0:
             default:
                 die("Goodbye!\n");
                 break;
             }
-        sleep(2);
+        sleep(5);
     }
 }

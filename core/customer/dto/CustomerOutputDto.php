@@ -1,6 +1,6 @@
 <?php
 
-namespace core\customer\contracts\dto;
+namespace core\customer\dto;
 
 readonly class CustomerOutputDto
 {

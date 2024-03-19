@@ -2,7 +2,7 @@
 
 namespace external\service;
 
-use core\customer\contracts\interface\CreateIdProvider;
+use core\contracts\CreateIdProvider;
 
 class GenerateIdRandom implements CreateIdProvider
 {
